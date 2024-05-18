@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 20),
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/profile_picture.jpg'), // Add your profile picture here
+              backgroundImage: AssetImage('assets/profile_picture.jpg'),
             ),
             SizedBox(height: 10),
             Text(

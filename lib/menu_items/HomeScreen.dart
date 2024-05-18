@@ -27,8 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Sample data for the horizontal list view
   final List<String> _items = [
-    "T-shirt", "Jeans", "Jacket", "Sweater", "Shirt",
-    "Dress", "Skirt", "Shorts", "Blazer", "Shoes"
+    "T-shirt",
+    "Jeans",
+    "Jacket",
+    "Sweater",
+    "Shirt",
+    "Dress",
+    "Skirt",
+    "Shorts",
+    "Blazer",
+    "Shoes"
   ];
 
   // Sample data for the image carousel
@@ -41,7 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Sample data for categories
   final List<String> _categories = [
-    "Men", "Women", "Kids", "Accessories", "Sale"
+    "Men",
+    "Women",
+    "Kids",
+    "Accessories",
+    "Sale"
   ];
 
   // Deal of the Day timer
@@ -143,7 +155,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // Fetch products from ShowProducts
     final products = ShowProductsState.getProducts();
-    final sampleProducts = products.length > 7 ? products.sublist(0, 7) : products;
+    final sampleProducts =
+        products.length > 7 ? products.sublist(0, 7) : products;
 
     return Scaffold(
       key: _scaffoldKey,
@@ -159,8 +172,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.style), // Example icon, change as needed
-              SizedBox(width: 10), // Space between icon and text
+              Icon(Icons.style),
+              SizedBox(width: 10),
               Text("Stylish"),
             ],
           ),
@@ -204,7 +217,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       "All Featured",
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     Row(
                       children: [
@@ -284,7 +298,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              SizedBox(height: 10), // Spacer between carousel and deal of the day
+              SizedBox(
+                  height: 10), // Spacer between carousel and deal of the day
               // Deal of the Day section
               Center(
                 child: Card(
@@ -320,7 +335,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.white,
                                   size: 16, // Adjust the size of the icon
                                 ),
-                                SizedBox(width: 5), // Adjust spacing between icon and text
+                                SizedBox(
+                                    width:
+                                        5), // Adjust spacing between icon and text
                                 Text(
                                   "${_formatDuration(_dealDuration)} remaining",
                                   style: TextStyle(
@@ -337,7 +354,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             // Handle View All action
                           },
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(5),
@@ -348,7 +366,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "View all",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+                                Icon(Icons.arrow_forward_ios,
+                                    color: Colors.white, size: 16),
                               ],
                             ),
                           ),
@@ -358,7 +377,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10), // Spacer between deal of the day and sample products list
+              SizedBox(
+                  height:
+                      10), // Spacer between deal of the day and sample products list
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -390,7 +411,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.asset(
-                                    product['image'] ?? '', // Ensure non-null value
+                                    product['image'] ??
+                                        '', // Ensure non-null value
                                     fit: BoxFit.cover,
                                     height: 100,
                                     width: double.infinity,
@@ -398,7 +420,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  product['title'] ?? 'No title', // Ensure non-null value
+                                  product['title'] ??
+                                      'No title', // Ensure non-null value
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -406,7 +429,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 SizedBox(height: 4),
                                 Text(
-                                  product['description'] ?? 'No description', // Ensure non-null value
+                                  product['description'] ??
+                                      'No description', // Ensure non-null value
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -482,7 +506,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ShowProducts()),
+                            MaterialPageRoute(
+                                builder: (context) => ShowProducts()),
                           );
                         },
                         child: Container(
@@ -504,21 +529,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 20), // Spacer between product list and special offers card
+              SizedBox(
+                  height:
+                      20), // Spacer between product list and special offers card
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9, // Set width to 90% of screen width
+                  width: MediaQuery.of(context).size.width *
+                      0.9, // Set width to 90% of screen width
                   child: SpecialOffersCard(),
                 ),
               ),
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9, // Set width to 90% of screen width
+                  width: MediaQuery.of(context).size.width *
+                      0.9, // Set width to 90% of screen width
                   child: FlatAndHeelsCard(),
                 ),
               ),
 
-              SizedBox(height: 10), // Spacer between carousel and deal of the day
+              SizedBox(
+                  height: 10), // Spacer between carousel and deal of the day
               // Deal of the Day section
               Center(
                 child: Card(
@@ -554,7 +584,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.white,
                                   size: 16, // Adjust the size of the icon
                                 ),
-                                SizedBox(width: 5), // Adjust spacing between icon and text
+                                SizedBox(
+                                    width:
+                                        5), // Adjust spacing between icon and text
                                 Text(
                                   "Last Date 29/02/22",
                                   style: TextStyle(
@@ -571,7 +603,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             // Handle View All action
                           },
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(5),
@@ -582,7 +615,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "View all",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+                                Icon(Icons.arrow_forward_ios,
+                                    color: Colors.white, size: 16),
                               ],
                             ),
                           ),
@@ -616,7 +650,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.asset(
-                                    product['image'] ?? '', // Ensure non-null value
+                                    product['image'] ??
+                                        '', // Ensure non-null value
                                     fit: BoxFit.cover,
                                     height: 100,
                                     width: double.infinity,
@@ -624,7 +659,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  product['title'] ?? 'No title', // Ensure non-null value
+                                  product['title'] ??
+                                      'No title', // Ensure non-null value
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -632,7 +668,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 SizedBox(height: 4),
                                 Text(
-                                  product['description'] ?? 'No description', // Ensure non-null value
+                                  product['description'] ??
+                                      'No description', // Ensure non-null value
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -708,7 +745,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ShowProducts()),
+                            MaterialPageRoute(
+                                builder: (context) => ShowProducts()),
                           );
                         },
                         child: Container(
@@ -732,16 +770,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9, // Set width to 90% of screen width
+                  width: MediaQuery.of(context).size.width *
+                      0.9, // Set width to 90% of screen width
                   child: ImageCardView(),
                 ),
               ),
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9, // Set width to 90% of screen width
+                  width: MediaQuery.of(context).size.width *
+                      0.9, // Set width to 90% of screen width
                   child: SponseredView(),
                 ),
-              ),// Add the SpecialOffersCard here
+              ), // Add the SpecialOffersCard here
             ],
           ),
         ),
